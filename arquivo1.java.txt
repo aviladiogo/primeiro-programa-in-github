@@ -1,0 +1,256 @@
+package listaproced2;
+
+import java.util.Scanner;
+
+public class Desafio {
+
+    static int Bissexto(int a) {
+        int valid = a % 4;
+        if (valid == 0) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    static int Validação(int a, int b, int c) {
+        if (c < 1900 || c > 2900) {
+            return 0;
+        }
+        if (b < 01 || b > 12) {
+            return 0;
+        }
+        if (a < 01 || a > 31) {
+            return 0;
+        }
+        if (Bissexto(c) == 1 || a > 29) {
+            return 0;
+        }
+        if (Bissexto(c) == 0 || a > 28) {
+            return 0;
+        }
+        else {
+        return 1;
+        }
+    }
+
+    static int CalcularDia(int a, int b, int c) {
+        int A = c - 1900, B = A / 4, C, D = a - 1, semana;
+
+        if (Bissexto(c) == 0) {
+            if (b == 1 || b == 10) {
+                C = 0;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 5) {
+                C = 1;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 8) {
+                C = 2;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 2 || b == 3 || b == 11) {
+                C = 3;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 6) {
+                C = 4;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 9 || b == 12) {
+                C = 5;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 4 || b == 7) {
+                C = 6;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+        }
+        if (Bissexto(c) == 1 &&  b>2) {
+            if (b == 1 || b == 10) {
+                C = 0;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 5) {
+                C = 1;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 8) {
+                C = 2;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 2 || b == 3 || b == 11) {
+                C = 3;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 6) {
+                C = 4;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 9 || b == 12) {
+                C = 5;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+            if (b == 4 || b == 7) {
+                C = 6;
+                semana = (A + B + C + D) % 7;
+                return semana;
+            }
+        }
+        else  if (Bissexto(c) == 1 || b <= 2  || a <= 29) {
+            if (b == 1 || b == 10) {
+                C = 0;
+                semana = (A + (B - 1) + C + D) % 7;
+                return semana;
+            }
+            if (b == 5) {
+                C = 1;
+                semana = (A + (B - 1) + C + D) % 7;
+                return semana;
+            }
+            if (b == 8) {
+                C = 2;
+                semana = (A + (B - 1) + C + D) % 7;
+                return semana;
+            }
+            if (b == 2 || b == 3 || b == 11) {
+                C = 3;
+                semana = (A + (B - 1) + C + D) % 7;
+                return semana;
+            }
+            if (b == 6) {
+                C = 4;
+                semana = (A + (B - 1) + C + D) % 7;
+                return semana;
+            }
+            if (b == 9 || b == 12) {
+                C = 5;
+                semana = (A + (B - 1) + C + D) % 7;
+                return semana;
+            }
+            if (b == 4 || b == 7) {
+                C = 6;
+                semana = (A + (B - 1) + C + D) % 7;
+                return semana;
+            }
+
+        }
+        
+
+        return 0;
+
+    }
+
+    static String NomedoMes(int a) {
+        String mes = null;        // da um errinho porem nao interfere no programa
+
+        switch (a) {
+            case 1:
+                mes = "Janeiro";
+                return mes;
+
+            case 2:
+                mes = "Fevereiro";
+                return mes;
+
+            case 3:
+                mes = "Março";
+                return mes;
+            case 4:
+                mes = "Abril";
+                return mes;
+            case 5:
+                mes = "Maio";
+                return mes;
+            case 6:
+                mes = "Junho";
+                return mes;
+            case 7:
+                mes = "Julho";
+                return mes;
+            case 8:
+                mes = "Agosto";
+                return mes;
+            case 9:
+                mes = "Setembro";
+                return mes;
+            case 10:
+                mes = "Outubro";
+                return mes;
+            case 11:
+                mes = "Novembro";
+                return mes;
+            case 12:
+                mes = "Dezembro";
+                return mes;
+        }
+        return null;
+    }
+
+    static String NomedoDia(int a) {
+        String dia = null;  // da um errinho porem nao interfere no programa
+        switch (a) {
+            case 6:
+                dia = "Domingo-feira";
+                return dia;
+            case 0:
+                dia = "Segunda-feira";
+                return dia;
+            case 1:
+                dia = "Terça-feira";
+                return dia;
+            case 2:
+                dia = "Quarta-feira";
+                return dia;
+            case 3:
+                dia = "Quinta-feira";
+                return dia;
+            case 4:
+                dia = "Sexta-feira";
+                return dia;
+            case 5:
+                dia = "Sábado-feira";
+                return dia;
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        Scanner New = new Scanner(System.in);
+        int dia, mes, ano;
+        String resp;
+        do {
+            System.out.println("qual dia voce nasceu ?");
+            dia = New.nextInt();
+
+            System.out.println("qual mes voce nasceu ?");
+            mes = New.nextInt();
+
+            System.out.println("qual ano voce nasceu ?");
+            ano = New.nextInt();
+            int diadasemana = CalcularDia(dia, mes, ano);
+            System.out.print("Você nasceu em " + dia);
+            System.out.print(" de " + NomedoMes(mes));
+            System.out.print(" de " + ano);
+            System.out.println(" Esta data foi uma " + NomedoDia(diadasemana));
+
+            System.out.println("deseja continuar descobrindo datas ?  (S/N)");
+            resp = New.next();
+        } while (resp.equals("S"));
+    }
+}
